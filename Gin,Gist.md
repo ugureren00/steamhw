@@ -110,6 +110,7 @@ JOIN-1 — users + orders
 
 1.<img width="988" height="317" alt="image" src="https://github.com/user-attachments/assets/4c1a0c01-aee7-4729-bf54-0313834d2fdb" />
 
+```sql
 "Limit  (cost=20943.27..20943.29 rows=7 width=53) (actual time=163.317..163.322 rows=11 loops=1)"
 "  Buffers: shared hit=1187"
 "  ->  Sort  (cost=20943.27..20943.29 rows=7 width=53) (actual time=163.316..163.319 rows=11 loops=1)"
@@ -148,10 +149,12 @@ JOIN-1 — users + orders
 "  Buffers: shared hit=32"
 "Planning Time: 0.505 ms"
 "Execution Time: 163.384 ms"
+```
 
 JOIN-2 — orders + payments
 2.<img width="1338" height="623" alt="image" src="https://github.com/user-attachments/assets/5272a034-9b77-44be-a75d-84ae15ef9603" />
 
+```sql
 "Limit  (cost=20110.74..20113.07 rows=20 width=62) (actual time=154.933..160.501 rows=20 loops=1)"
 "  Buffers: shared hit=3522 read=8380"
 "  ->  Gather Merge  (cost=20110.74..45373.63 rows=216524 width=62) (actual time=154.931..160.494 rows=20 loops=1)"
@@ -180,11 +183,13 @@ JOIN-2 — orders + payments
 "  Buffers: shared hit=8"
 "Planning Time: 0.257 ms"
 "Execution Time: 160.541 ms"
+```
 
 
 JOIN-3 — games + products
 3. <img width="1358" height="655" alt="image" src="https://github.com/user-attachments/assets/40662770-6c1b-4e90-8638-768e80e95359" />
 
+```sql
 "Limit  (cost=7.05..155.94 rows=25 width=89) (actual time=0.199..0.204 rows=25 loops=1)"
 "  Buffers: shared hit=54"
 "  ->  Incremental Sort  (cost=7.05..50540.46 rows=8485 width=89) (actual time=0.198..0.200 rows=25 loops=1)"
@@ -214,12 +219,14 @@ JOIN-3 — games + products
 "  Buffers: shared hit=26"
 "Planning Time: 0.547 ms"
 "Execution Time: 0.249 ms"
+```
 
 
 JOIN-4 — users + libraries + products
 
 4. <img width="1313" height="587" alt="image" src="https://github.com/user-attachments/assets/4016d746-8797-45c7-910a-7606ff246aa8" />
 
+```sql
 "Limit  (cost=5246.25..5264.46 rows=20 width=62) (actual time=24.403..29.733 rows=20 loops=1)"
 "  Buffers: shared hit=2844 read=1"
 "  ->  Nested Loop  (cost=5246.25..7775.48 rows=2779 width=62) (actual time=24.402..29.728 rows=20 loops=1)"
@@ -253,12 +260,14 @@ JOIN-4 — users + libraries + products
 "  Buffers: shared hit=29"
 "Planning Time: 0.474 ms"
 "Execution Time: 29.776 ms"
+```
 
 
 JOIN-5 — products + reviews + users
 
 5. <img width="1179" height="625" alt="image" src="https://github.com/user-attachments/assets/0752a309-b357-4cb3-9911-e5043f5ef746" />
 
+```sql
 "Limit  (cost=64347.01..64347.06 rows=20 width=75) (actual time=400.180..403.305 rows=20 loops=1)"
 "  Buffers: shared hit=597 read=27242, temp read=911 written=914"
 "  ->  Sort  (cost=64347.01..64734.58 rows=155027 width=75) (actual time=400.178..403.301 rows=20 loops=1)"
@@ -307,6 +316,7 @@ JOIN-5 — products + reviews + users
 "  Buffers: shared hit=35"
 "Planning Time: 0.723 ms"
 "Execution Time: 403.895 ms"
+```
 
 
 Select <img width="1835" height="564" alt="image" src="https://github.com/user-attachments/assets/5d4ee6ed-6178-43e9-94ed-74d26d5fcc12" />
