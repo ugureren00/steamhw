@@ -94,3 +94,13 @@ WHERE description LIKE '%story%';
 
 B-tree
 <img width="923" height="287" alt="2 6" src="https://github.com/user-attachments/assets/48458252-5a24-4a59-b7c9-c02e8830b94d" />
+
+
+
+```sql
+CREATE INDEX idx_products_price_btree ON products(price);
+CREATE INDEX idx_payments_provider_txn_btree ON payments(provider_txn_id);
+CREATE INDEX idx_payments_provider_txn_hash ON payments USING hash(provider_txn_id);
+CREATE INDEX idx_products_name_like_btree ON products(name varchar_pattern_ops);
+CREATE INDEX idx_products_publisher_btree ON products(publisher_name);
+```
