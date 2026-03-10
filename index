@@ -4,4 +4,4 @@ EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
 FROM products
 WHERE price > 60;
-'''
+```
