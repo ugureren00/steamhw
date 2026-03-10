@@ -5,11 +5,11 @@ SELECT *
 FROM products
 WHERE price > 60;
 ```
-без индексов
+-без индексов
 <img width="809" height="239" alt="1 1" src="https://github.com/user-attachments/assets/77ecf50e-aa95-4e34-85b9-936353bc3146" />
 
 
-B-tree
+-B-tree
 <img width="916" height="377" alt="2 1" src="https://github.com/user-attachments/assets/edff58cd-507e-4982-a911-dd123700b845" />
 
 
