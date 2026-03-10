@@ -1,0 +1,41 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: steam_hw_pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: steam_hw
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - steam_hw_data:/var/lib/postgresql/data
+      - ./s1/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d steam_hw"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  flyway:
+    image: flyway/flyway:10
+    container_name: steam_hw_flyway
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./s1/migrations:/flyway/sql/s1
+      - ./s2/migrations:/flyway/sql/s2
+    command:
+      [
+        "-connectRetries=60",
+        "-locations=filesystem:/flyway/sql/s1,filesystem:/flyway/sql/s2",
+        "-url=jdbc:postgresql://postgres:5432/steam_hw",
+        "-user=steam_admin",
+        "-password=steam_admin_pass",
+        "migrate"
+      ]
+
+volumes:
+  steam_hw_data:
