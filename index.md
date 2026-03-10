@@ -1,4 +1,4 @@
-Bu, mağazada pahalı ürünleri / pahalı oyunları filtreleme senaryosu.
+Bu, mağazada pahalı ürünleri / pahalı oyunları filtreleme senaryosu. (Это фильтр дорогих товаров в магазине.)
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
@@ -13,7 +13,7 @@ WHERE price > 60;
 <img width="916" height="377" alt="2 1" src="https://github.com/user-attachments/assets/edff58cd-507e-4982-a911-dd123700b845" />
 
 
-Bu da mağazada ucuz ürünleri / indirimli ucuz oyunları arama senaryosu.
+Bu da mağazada ucuz ürünleri / indirimli ucuz oyunları arama senaryosu.(Это фильтр дешёвых товаров.)
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
@@ -28,7 +28,7 @@ B-tree
 <img width="913" height="335" alt="2 2" src="https://github.com/user-attachments/assets/ed1ae773-df76-4b03-b6f0-c5f1f55f34b9" />
 
 
-Bu, tek bir ödeme işlemini bulma senaryosu.
+Bu, tek bir ödeme işlemini bulma senaryosu.(Это поиск одной конкретной транзакции по её идентификатору.)
 transaction ID
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
@@ -47,7 +47,7 @@ B-tree
 Hash
 <img width="1003" height="307" alt="image" src="https://github.com/user-attachments/assets/dce58443-25ad-4550-9b7d-0821e5f352aa" />
 
-Bu, mağazada ürün adıyla prefix arama senaryosu.
+Bu, mağazada ürün adıyla prefix arama senaryosu.(Это поиск по началу названия продукта.)
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
@@ -61,7 +61,7 @@ WHERE name LIKE 'Product 12%';
 B-tree
 <img width="914" height="303" alt="2 4" src="https://github.com/user-attachments/assets/b4c22be0-f235-4ff4-afc8-17954a62c0d9" />
 
-Bu, mağazada birkaç yayıncıya göre filtreleme senaryosu.
+Bu, mağazada birkaç yayıncıya göre filtreleme senaryosu.(Это фильтрация товаров по нескольким издателям.)
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
@@ -81,7 +81,7 @@ Hash
 <img width="917" height="323" alt="image" src="https://github.com/user-attachments/assets/874a4ba3-219e-4236-8c37-8a8d8c33cdef" />
 
 
-Bu, mağazada açıklama içinde anahtar kelime arama senaryosu.
+Bu, mağazada açıklama içinde anahtar kelime arama senaryosu.(Это поиск слова внутри текста описания.)
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
